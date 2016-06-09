@@ -42,13 +42,15 @@ NOTE: Getting user input seems to be flaky on CoderPad. If reading input from th
 
 (function() {
 
-   var deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1,
-                2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1,
-                2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1,
-                2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
+  //Deck Info
+  var deck = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1,
+               2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1,
+               2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1,
+               2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1];
 
   var currentDeckPosition = -1;
 
+  //Player Class
   function Player(name) {
     this.name = name;
     this.cards = [];
@@ -84,7 +86,7 @@ NOTE: Getting user input seems to be flaky on CoderPad. If reading input from th
       total += value;
     }
 
-    //Accomdate for potential ace value change
+    //Accomodate for potential ace value change
     if (this.cards.indexOf(1) > -1 && total > 21) {
       total -= 10;
     }
@@ -106,7 +108,9 @@ NOTE: Getting user input seems to be flaky on CoderPad. If reading input from th
     }
   }
 
+
   var prompt = function() {
+    //input would go here, but choosing randomly for now
     var choice = Math.floor(Math.random()*(1-0+1)+0);
     if (choice === 1) {
       return 'stay';
@@ -118,7 +122,7 @@ NOTE: Getting user input seems to be flaky on CoderPad. If reading input from th
     if (player1.total <= 21 && player2.total > 21) {
       console.log(player1.name + ' wins with ' + player1.total);
     } else if (player1.total > 21 && player2.total <= 21) {
-      console.log(player2.name + ' wins with ' + player1.total);
+      console.log(player2.name + ' wins with ' + player2.total);
     } else if (player1.total === 21 && player2.total === 21) {
       console.log('Both got 21! Tie!');
     } else if (player1.total < 21 && player2.total < 21) {
